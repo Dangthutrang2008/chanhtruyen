@@ -1,0 +1,22 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "stories"
+    label: "Truyện"
+    folder: "data/stories"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Tiêu đề", name: "title", widget: "string"}
+      - {label: "Slug", name: "slug", widget: "string"}
+      - {label: "Tác giả", name: "author", widget: "string"}
+      - {label: "Mô tả", name: "description", widget: "text"}
+      - {label: "Chương", name: "chapters", widget: "list", fields: [
+          {label: "Tiêu đề chương", name: "title", widget: "string"},
+          {label: "Nội dung", name: "content", widget: "markdown"}
+        ]}
